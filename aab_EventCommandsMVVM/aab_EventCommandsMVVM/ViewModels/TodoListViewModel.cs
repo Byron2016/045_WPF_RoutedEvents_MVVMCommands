@@ -1,12 +1,13 @@
 ﻿using aab_EventCommandsMVVM.Models;
+using System.Collections.ObjectModel;
 
 namespace aab_EventCommandsMVVM.ViewModels
 {
     public class TodoListViewModel: ObservableObject
     {
-        private TodoItem _todoItems;
+        private ObservableCollection<TodoItem> _todoItems;
 
-        public TodoItem TodoItems
+        public ObservableCollection<TodoItem> TodoItems
         {
             get { return _todoItems; }
             set { 
