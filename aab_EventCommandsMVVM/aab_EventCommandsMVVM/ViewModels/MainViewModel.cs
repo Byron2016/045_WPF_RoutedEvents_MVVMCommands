@@ -13,7 +13,9 @@ namespace aab_EventCommandsMVVM.ViewModels
 
         public TodoListViewModel TodoListViewModel
         {
-            get { return _todoListViewModel; }
+            get { 
+                return _todoListViewModel; 
+            }
             set { 
                 _todoListViewModel = value; 
                 OnPropertyChanged(nameof(TodoListViewModel));

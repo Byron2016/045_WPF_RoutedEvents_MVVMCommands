@@ -11,19 +11,21 @@ namespace aab_EventCommandsMVVM.ViewModels
 
         public ObservableCollection<TodoItem> TodoItems
         {
-            get { return _todoItems; }
+            get { 
+                return _todoItems; 
+            }
             set { 
                 _todoItems = value; 
                 OnPropertyChanged(nameof(TodoItems));
             }
         }
 
-        public ICommand LoadTodoItemsCommand { get; set; }
+        public ICommand LoadTodoItemsCommand_TodoListViewModel { get; set; }
 
         public TodoListViewModel()
         {
-            LoadTodoItemsCommand = new LoadTodoItemsCommand(this);
-            LoadTodoItemsCommand.Execute(null);
+            LoadTodoItemsCommand_TodoListViewModel = new LoadTodoItemsCommand(this);
+            LoadTodoItemsCommand_TodoListViewModel.Execute(null);
         }
 
     }
