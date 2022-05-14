@@ -27,7 +27,7 @@ namespace aab_EventCommandsMVVM.Commands
             return true; //generado y modificado
         }
 
-        public async Task ExecuteAsync(object? parameter) //generado
+        public async void Execute(object? parameter) //generado
         {
             // Get todo list items from API.
             IEnumerable<TodoItem> todoItems = await GetTodoItemsAsync();
