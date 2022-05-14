@@ -1,5 +1,7 @@
-﻿using aab_EventCommandsMVVM.Models;
+﻿using aab_EventCommandsMVVM.Commands;
+using aab_EventCommandsMVVM.Models;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace aab_EventCommandsMVVM.ViewModels
 {
@@ -14,6 +16,13 @@ namespace aab_EventCommandsMVVM.ViewModels
                 _todoItems = value; 
                 OnPropertyChanged(nameof(TodoItems));
             }
+        }
+
+        public ICommand LoadTodoItemsCommand { get; set; }
+
+        public TodoListViewModel()
+        {
+            LoadTodoItemsCommand = new LoadTodoItemsCommand(this);
         }
 
     }
