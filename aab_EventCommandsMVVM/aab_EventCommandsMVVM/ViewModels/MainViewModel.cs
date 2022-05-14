@@ -20,9 +20,9 @@ namespace aab_EventCommandsMVVM.ViewModels
             }
         }
 
-        public MainViewModel(TodoListViewModel todoListViewModel)
+        public MainViewModel()
         {
-            _todoListViewModel = todoListViewModel;
+            _todoListViewModel = new TodoListViewModel();
         }
 
     }
