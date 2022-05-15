@@ -31,7 +31,7 @@ namespace aab_EventCommandsMVVM.ViewModels
         {
             Title = "Titulo";
             LoadTodoItemsCommand = new LoadTodoItemsCommand(this);
-            LoadTodoItemsCommand.Execute(null);
+            //LoadTodoItemsCommand.Execute(null);
         }
     }
 }
