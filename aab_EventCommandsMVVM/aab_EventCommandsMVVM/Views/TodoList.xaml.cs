@@ -1,4 +1,5 @@
-﻿using System;
+﻿using aab_EventCommandsMVVM.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,11 @@ namespace aab_EventCommandsMVVM.Views
         public TodoList()
         {
             InitializeComponent();
+        }
+
+        private void UserControl_loaded(object sender, RoutedEventArgs e)
+        {
+            (DataContext as TodoListViewModel).LoadTodoItemsCommand.Execute(null);
         }
     }
 }
