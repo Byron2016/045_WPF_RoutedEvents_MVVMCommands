@@ -21,6 +21,19 @@ namespace aab_EventCommandsMVVM.Views
     /// </summary>
     public partial class TodoList : UserControl
     {
+        public ICommand LoadCommand
+        {
+            get
+            {
+                return (ICommand)GetValue(LoadCommandProperty);
+            }
+            set
+            {
+                SetValue(LoadCommandProperty, value);
+            }
+        }
+
+        public static readonly DependencyProperty LoadCommandProperty = DependencyProperty.Register("LoadCommand", typeof(ICommand), typeof(TodoList), new PropertyMetadata(null));
         public TodoList()
         {
             InitializeComponent();
@@ -28,7 +41,12 @@ namespace aab_EventCommandsMVVM.Views
 
         private void UserControl_loaded(object sender, RoutedEventArgs e)
         {
-            (DataContext as TodoListViewModel).LoadTodoItemsCommand.Execute(null);
+            //(DataContext as TodoListViewModel).LoadTodoItemsCommand.Execute(null);
+
+            if(LoadCommand != null)
+            {
+                LoadCommand.Execute(null);
+            }
         }
     }
 }
