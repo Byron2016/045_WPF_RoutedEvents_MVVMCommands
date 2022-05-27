@@ -27,6 +27,8 @@ namespace aab_EventCommandsMVVM.ViewModels
 
         public ICommand LoadTodoItemsCommand { get; set; }
 
+        public ICommand SelectedTodoItemsChangedCommand { get; set; }
+
         public TodoListViewModel()
         {
             Title = "Titulo";

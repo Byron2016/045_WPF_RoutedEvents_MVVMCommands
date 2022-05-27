@@ -34,6 +34,21 @@ namespace aab_EventCommandsMVVM.Views
         }
 
         public static readonly DependencyProperty LoadCommandProperty = DependencyProperty.Register("LoadCommand", typeof(ICommand), typeof(TodoList), new PropertyMetadata(null));
+
+        public ICommand SelectedTodoItemsChangedCommand
+        {
+            get
+            {
+                return (ICommand)GetValue(SelectedTodoItemsChangedCommandProperty);
+            }
+            set
+            {
+                SetValue(SelectedTodoItemsChangedCommandProperty, value);
+            }
+        }
+
+        public static readonly DependencyProperty SelectedTodoItemsChangedCommandProperty = DependencyProperty.Register("SelectedTodoItemsChangedCommand", typeof(ICommand), typeof(TodoList), new PropertyMetadata(null));
+
         public TodoList()
         {
             InitializeComponent();
@@ -46,6 +61,14 @@ namespace aab_EventCommandsMVVM.Views
             if(LoadCommand != null)
             {
                 LoadCommand.Execute(null);
+            }
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(SelectedTodoItemsChangedCommand != null)
+            {
+                SelectedTodoItemsChangedCommand.Execute(lvTodoItems.SelectedItem);
             }
         }
     }

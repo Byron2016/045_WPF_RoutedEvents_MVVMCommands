@@ -13,8 +13,13 @@
             <Run Text="bbb" />
             <Run Text="{Binding Title}" />
         </TextBlock>-->
-        <ListView Margin="50"
-                  ItemsSource="{Binding TodoItems}">
+        <ListView 
+            x:Name="lvTodoItems"
+            Margin="50"
+            SelectionMode="Multiple"
+            SelectionChanged="ListView_SelectionChanged"
+            ItemsSource="{Binding TodoItems}">
+            
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Is Completed">
